@@ -1,9 +1,10 @@
 import imaplib
+import re
 imap = imaplib.IMAP4_SSL('imap.gmail.com', 993)
 imap.login('fabrice.bernhard@gmail.com','XXXXXXXX')
 mboxes = imap.list()[1]
 imap.select("Undelivered Mail")
-uids = imap.search(None,"(SINCE 23-Jun-2010)")
+uids = imap.search(None,"(SINCE 30-Jun-2010)")
 uids = uids[1][0].split(' ')
 emails = []
 for uid in uids:
